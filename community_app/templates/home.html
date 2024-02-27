@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>home</title>
+</head>
+<body>
+    <h1>Welcome, {{ session["username"] }}!</h1>
+    <p>This is your home.</p>
+    <!-- ログアウトボタンを追加 -->
+    <form action="/logout" method="post">
+        <input type="submit" value="Logout">
+    </form>
+    <!--  ダッシュボードページへのリンクを追加 -->
+    <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+</body>
+</html>

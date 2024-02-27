@@ -1,0 +1,15 @@
+<!-- delete_item.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Community</title>
+</head>
+<body>
+    <h1>Delete Community</h1>
+    <p>Are you sure you want to delete "{{ community.name }}"?</p>
+    <form action="{{ url_for('delete_item', community_id=community_id) }}" method="post">
+        <input type="submit" value="Yes, Delete">
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- edit_item.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Community</title>
+</head>
+<body>
+    <h1>Edit Community</h1>
+    <form action="{{ url_for('edit_item', community_id=community_id) }}" method="post">
+        <label for="name">Community Name:</label>
+        <input type="text" id="name" name="name" value="{{ community.name }}" required>
+        <label for="secretary">Secretary Name:</label>
+        <input type="text" id="secretary" name="secretary" value="{{ community.secretary }}" required>
+        <label for="overview">Overview:</label>
+        <textarea id="overview" name="overview" required>{{ community.overview }}</textarea>
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" value="{{ community.contact }}" required>
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

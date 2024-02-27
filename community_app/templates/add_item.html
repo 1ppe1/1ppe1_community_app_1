@@ -1,0 +1,23 @@
+<!-- add_item.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Community</title>
+</head>
+<body>
+    <h1>Add Community</h1>
+    <form action="{{ url_for('add_item') }}" method="post">
+        <label for="name">Community Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="secretary">Secretary Name:</label>
+        <input type="text" id="secretary" name="secretary" required>
+        <label for="overview">Overview:</label>
+        <textarea id="overview" name="overview" required></textarea>
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" required>
+        <input type="submit" value="Add Community">
+    </form>
+</body>
+</html>
+

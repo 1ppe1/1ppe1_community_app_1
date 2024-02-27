@@ -1,0 +1,43 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Communities</h2>
+    <form action="{{ url_for('selected_communities') }}" method="post">
+        <ul>
+            {% for community_id, community in communities.items() %}
+                <li>
+                    <input type="checkbox" id="{{ community_id }}" name="selected_communities" value="{{ community_id }}">
+                    <label for="{{ community_id }}">{{ community.name }} - {{ community.secretary }}</label>
+                    <br>Overview: {{ community.overview }}
+                    <br>Contact: {{ community.contact }}
+                    <!--   編集ボタン -->
+                    <a href="{{ url_for('edit_item', community_id=community_id) }}">Edit</a>
+                    <!-- 削除ボタン -->
+                    <a href="{{ url_for('delete_item', community_id=community_id) }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Show Selected Communities">
+    </form>
+    <h2>Add Community</h2>
+    <form action="{{ url_for('add_item') }}" method="post">
+        <label for="name">Community Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="secretary">Secretary Name:</label>
+        <input type="text" id="secretary" name="secretary" required>
+        <label for="overview">Overview:</label>
+        <textarea id="overview" name="overview" required></textarea>
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" required>
+        <input type="submit" value="Add Community">
+    </form>
+    <!--   ホームページへのリンクを追加 -->
+    <a href="{{ url_for('home') }}">Go to Home</a>
+</body>
+</html>
